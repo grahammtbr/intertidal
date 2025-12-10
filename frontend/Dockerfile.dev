@@ -1,0 +1,17 @@
+FROM node:20-alpine
+
+# Set work directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies, including dev dependencies
+RUN npm install
+
+# Copy all code
+COPY . .
+
+# Vue development server usually runs on 3000, 5173, or 8080.
+# The `docker-compose.dev.yml` sets it to 3000 for consistency.
+EXPOSE 3000
