@@ -2,19 +2,19 @@ services:
   # Django Backend Service
   backend:
     build:
-      context: ./backend # Path to your Django project's Dockerfile
+      context: ./backend
       dockerfile: Dockerfile
     container_name: django_backend
     env_file:
       - .env
-    command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application # Use your actual project name
+    command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application 
     volumes:
       - ./backend:/app # Mount your backend code
       - static_volume:/app/static # Volume for static files
       - media_volume:/app/media # Volume for media files
-    # This gives docker access to the local Postgres DB. It should read from the same .env file as Django settings.py
+    # extra-hosts gives docker access to the local Postgres DB. It should read from the same .env file as Django settings.py
     # host.docker.internal resolves to the hosts IP from with the Docker container. It should be in the 172.17.0.0/16 range.
-    # You will may need to edit pg_hba.conf to allow it using "host all all 172.17.0.0/16 md5"
+    # You may need to edit pg_hba.conf to allow it using "host all all 172.17.0.0/16 md5"
     # If it doesn't work run 'ip a' and look for docker0 or open up a wider range.
     # You may need to edit postgresql.conf to allow hosts other than localhost
     extra_hosts:

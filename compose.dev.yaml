@@ -12,7 +12,7 @@ services:
     volumes:
       # Mount entire code directory for real-time changes
       - ./backend:/app
-    # See comments in the docker-compose.yml file
+    # See comments in the compose.yaml file
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
