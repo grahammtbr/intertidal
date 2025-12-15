@@ -9,7 +9,7 @@ services:
       - .env
     command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application 
     volumes:
-      - ./backend:/app # Mount your backend code
+      - ./backend:/app # Mount for backend code
       - static_volume:/app/static # Volume for static files
       - media_volume:/app/media # Volume for media files
     # extra-hosts gives docker access to the local Postgres DB. It should read from the same .env file as Django settings.py
@@ -40,9 +40,12 @@ services:
       dockerfile: Dockerfile
     container_name: vue_frontend
     volumes:
-      - ./frontend/dist:/usr/share/nginx/html # Mount the built static files
+      - ./frontend:/app
+      - /app/node_modules
+      #- ./frontend/dist:/usr/share/nginx/html # Mount the built static files
     # The build process should result in a production-ready static directory
     # This is mainly for building and mounting the static assets, Nginx will serve them.
+    command: npm run build
 
   # Nginx Reverse Proxy Service
   nginx:
@@ -61,8 +64,8 @@ services:
       - "80:80"
     depends_on:
       - backend
+      - frontend
     restart: unless-stopped
 
 volumes:
   static_volume:
-  media_volume:

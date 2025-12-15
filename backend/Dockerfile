@@ -2,16 +2,16 @@
 FROM python:3.12-bookworm
 
 # Install libgdal-dev which is needed to run Python GDAL in docker.
-# Python version HAS to match the system version, and doesn't work when installed through requirements.txt (at least on Ubunutu)
-# The paths may need to be registered, as GDAL from apt doesn't register itself correctly.
+# Python version HAS to match the image version, and can fail when installed through requirements.txt
+# The paths may need to be registered on the server, as GDAL from apt doesn't register itself correctly.
+# export CPLUS_INCLUDE_PATH=/usr/include/gdal
+# export C_INCLUDE_PATH=/usr/include/gdal
 # V3.11+ apparently solves this, but not until Forky (or pull package from Sid).
 # Building a newer version from source gives version conflicts, as apt purge gdal-bin doesn't do what it's supposed to do.
 # If the container still doesn't build try running "sudo ldconfig" on the server.
 # GDAL made me angry
 RUN apt-get update && \
     apt-get install -y libgdal-dev && \
-    #export CPLUS_INCLUDE_PATH=/usr/include/gdal && \
-    #export C_INCLUDE_PATH=/usr/include/gdal && \
     pip install GDAL==$(gdal-config --version)
 
 # Keeps Python from generating .pyc files in the container
@@ -29,5 +29,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project code
 COPY . /app/
 
-RUN python manage.py migrate --no-input
-RUN python manage.py collectstatic --no-input
+#RUN python manage.py migrate --no-input
+#RUN python manage.py collectstatic --no-input
