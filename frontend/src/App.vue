@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+//import { RouterLink, RouterView } from 'vue-router'
 import SiteHeader from './components/SiteHeader.vue'
 import MapView from './views/MapView.vue'
 </script>
@@ -19,6 +19,6 @@ import MapView from './views/MapView.vue'
   </header> -->
 
     <SiteHeader />
-    <RouterView />
-    <!-- <MapView /> -->
+    <!-- <RouterView /> -->
+    <MapView />
 </template>
