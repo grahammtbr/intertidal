@@ -19,13 +19,13 @@ const baseLayers = {
             attribution: '© Esri, Maxar, Earthstar Geographics, and the GIS User Community',
         },
     },
-    // 'MSEA Titles': {
-    //     url: `${baseUrl}/calvert_2023_5_d1_f1_rgb/{z}/{x}/{y}.png`,
-    //     options: {
-    //         maxZoom: 16,
-    //         attribution: '© Fisheries and Oceans, Canada',
-    //     },
-    // },
+    'MSEA Titles': {
+        url: `${baseUrl}/calvert_2023_5_d1_f1_rgb/{z}/{x}/{y}.png`,
+        options: {
+            maxZoom: 16,
+            attribution: '© Fisheries and Oceans, Canada',
+        },
+    },
 }
 
 // Optional overlays on load, maybe to be used later for default flight rasters?

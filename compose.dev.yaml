@@ -12,6 +12,7 @@ services:
     volumes:
       # Mount entire code directory for real-time changes
       - ./backend:/app
+      - static_volume:/usr/src/app/static
     # See comments in the compose.yaml file
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -37,7 +38,7 @@ services:
       dockerfile: Dockerfile.dev # We'll define a separate dev Dockerfile
     container_name: vue_frontend_dev
     env_file:
-      - .env
+      - ./frontend/.env
     volumes:
       # Mount entire code directory
       - ./frontend:/app
@@ -68,3 +69,6 @@ services:
       - backend
       - frontend
     restart: unless-stopped
+
+volumes:
+  static_volume:

@@ -4,10 +4,10 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: django_backend
+    container_name: intertidal_backend
     env_file:
-      - .env
-    command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application 
+      - ./backend/.env
+    #command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application 
     volumes:
       - ./backend:/app # Mount for backend code
       - static_volume:/app/static # Volume for static files
@@ -38,14 +38,14 @@ services:
     build:
       context: ./frontend # Path to your Vue project's Dockerfile (should build the production bundle)
       dockerfile: Dockerfile
-    container_name: vue_frontend
+    container_name: intertidal_frontend
     volumes:
       - ./frontend:/app
       - /app/node_modules
       #- ./frontend/dist:/usr/share/nginx/html # Mount the built static files
     # The build process should result in a production-ready static directory
     # This is mainly for building and mounting the static assets, Nginx will serve them.
-    command: npm run build
+    #command: npm run build
 
   # Nginx Reverse Proxy Service
   nginx:
@@ -69,3 +69,4 @@ services:
 
 volumes:
   static_volume:
+  media_volume:
