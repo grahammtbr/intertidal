@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: intertidal_backend
     env_file:
-      - ./backend/.env
+      - .env
     #command: gunicorn --bind 0.0.0.0:8000 intertidal.wsgi:application 
     volumes:
       - ./backend:/app # Mount for backend code
