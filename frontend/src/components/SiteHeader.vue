@@ -15,7 +15,7 @@ import ToDoMenu from './ToDoMenu.vue'
                     src="@/assets/images/MSEA_logo_FullColour.svg"
                     width="120"
                 />
-                <h1 class="text-2xl font-bold mb-0.5 text-slate-800">Intertidal Surveys Database</h1>
+                <h1 class="text-2xl font-bold mb-0.5 text-slate-900">Intertidal Surveys Database</h1>
             </div>
             <div class="flex gap-x-8">
                 <to-do-menu />

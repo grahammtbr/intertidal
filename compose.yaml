@@ -40,17 +40,17 @@ services:
       dockerfile: Dockerfile
     container_name: intertidal_frontend
     volumes:
-      - ./frontend:/app
+      - ./frontend:/app # Mount for frontend code
       - /app/node_modules
       #- ./frontend/dist:/usr/share/nginx/html # Mount the built static files
     # The build process should result in a production-ready static directory
     # This is mainly for building and mounting the static assets, Nginx will serve them.
-    #command: npm run build
+    command: npm run build
 
   # Nginx Reverse Proxy Service
   nginx:
     image: nginx:stable-alpine
-    container_name: nginx_proxy
+    container_name: intertidal_nginx_proxy
     volumes:
       # Mount Nginx configuration file
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
@@ -60,8 +60,11 @@ services:
       # Mount the built frontend static files
       - ./frontend/dist:/usr/src/app/frontend_dist
     ports:
-      # Map host port 80 to container port 80
+      # Map host port 80 to container port 80. This works a single container server.
+      # It will likely conflict an existing Docker Nginx network.
+      # If there's an internal network mapping ports then change to something like 8080:80
       - "80:80"
+      #- "443:443" # If SSL is needed in the future
     depends_on:
       - backend
       - frontend
