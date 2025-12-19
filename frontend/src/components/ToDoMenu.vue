@@ -33,10 +33,9 @@ import {
                     (override existing current$)
                 </li>
                 <li>Fix Leaflet layer control - may need custom</li>
-                <li>fix survey point switch, so "checked" value isn't lost on nav away</li>
-                <li>Navigate on title click, not just arrow?</li>
+                    <ul class="list-disc pl-4"><li class="inde">Not broken, ARC base map is - remove or find replacement?</li></ul>
                 <li>What info to add to survey point popup?</li>
-                <li>Title server - waiting on fix</li>
+                <li>Control to zoom out to bounds of all open images/points</li>
             </ul>
         </DropdownMenuContent>
     </DropdownMenu>

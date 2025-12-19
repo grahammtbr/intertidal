@@ -15,7 +15,7 @@ const { data, error } = useFetch(url)
         <div
             v-for="survey in data"
             :key="survey.id"
-            class="flex justify-between items-center gap-x-4 py-1.5 first:pt-1 text-base"
+            class="py-1.5 first:pt-1 text-base"
         >
             <ListItems :item="survey" @selectedItem="store.setCurrentSurvey(survey)" />
         </div>

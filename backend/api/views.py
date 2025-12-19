@@ -105,6 +105,10 @@ class RasterViewSet(viewsets.ReadOnlyModelViewSet):
 #     queryset = models.RpasFlight.objects.all()
 #     serializer_class = serializers.RpasFlightSerializer
 
+class RpasViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = models.Rpas.objects.all()
+    serializer_class = serializers.RpasSerializer
+
 class RpasFlightList(generics.ListAPIView):
     serializer_class = serializers.RpasFlightSerializer
 

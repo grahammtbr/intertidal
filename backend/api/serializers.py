@@ -77,8 +77,15 @@ class RasterRpasFlightSerializer(serializers.ModelSerializer):
         model = models.RasterRpasFlight
         fields = '__all__'
 
+class RpasSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = models.Rpas
+        fields = "__all__"
+
 class RpasFlightSerializer(serializers.ModelSerializer):
     rasters = RasterRpasFlightSerializer(many=True)
+    rpas = RpasSerializer()
 
     class Meta:
         model = models.RpasFlight

@@ -18,6 +18,7 @@ router.register(r'raster_types', views.RasterTypeViewSet, basename='raster_type'
 #router.register(r'rasters', views.RasterViewSet, basename='raster')
 #router.register(r'raster_rpas_flights', views.RasterRpasFlightViewSet, basename='raster_rpas_flight')
 #router.register(r'rpas_flights', views.RpasFlightViewSet, basename='rpas_flight')
+router.register(r'rpas', views.RpasViewSet, basename='rpas')
 
 urlpatterns = [
     path('deployments/', views.DeploymentList.as_view()),

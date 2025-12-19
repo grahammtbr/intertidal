@@ -49,7 +49,7 @@ const store = useSurveyStore()
                     @click="store.activePanel--"
                     :class="[store.activePanel == 1 ? 'invisible' : '']"
                 >
-                    <ArrowLeft :size="24" />
+                    <ArrowLeft :size="24" class="text-slate-600 hover:text-slate-900"/>
                 </button>
             </div>
             <Transition name="fade" mode="out-in">

@@ -2,13 +2,13 @@
 import LeafletMap from '../components/LeafletMap.vue'
 import SidePanel from '@/components/SidePanel.vue'
 
-const baseUrl = import.meta.env.VITE_TILES_URL
+const maxZoom = import.meta.env.VITE_TILES_MAX_ZOOM
 
 const baseLayers = {
     'Google Earth': {
         url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
         options: {
-            maxZoom: 21,
+            maxZoom: maxZoom,
             attribution: '© Google',
         },
     },
@@ -17,13 +17,6 @@ const baseLayers = {
         options: {
             maxZoom: 18,
             attribution: '© Esri, Maxar, Earthstar Geographics, and the GIS User Community',
-        },
-    },
-    'MSEA Titles': {
-        url: `${baseUrl}/calvert_2023_5_d1_f1_rgb/{z}/{x}/{y}.png`,
-        options: {
-            maxZoom: 16,
-            attribution: '© Fisheries and Oceans, Canada',
         },
     },
 }

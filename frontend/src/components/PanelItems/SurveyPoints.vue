@@ -4,8 +4,6 @@ import { useFetch } from '@/assets/js/fetch'
 import { Switch } from '@/components/ui/switch'
 import * as L from 'leaflet'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
-import { CircleQuestionMark } from 'lucide-vue-next'
-import IconQuestion from '../icons/IconQuestion.vue'
 import IconInfo from '../icons/IconInfo.vue'
 import { mapPadding } from '@/lib/utils'
 
@@ -36,7 +34,7 @@ watch(
     () => data.value,
     (surveyPoints) => {
         if (!surveyPoints) return
-
+        //console.log(surveyPoints)
         const grouped = {}
 
         for (const surveyPoint of Object.values(surveyPoints)) {
@@ -108,7 +106,7 @@ function switchHandler(name, value) {
         sptName.group.addTo(map.value)
         map.value.flyToBounds(mapBounds, mapPadding)
     } else if (!value) {
-        sptName.group.remove()
+        sptName.group.removeFrom(map.value)
     }
 }
 </script>

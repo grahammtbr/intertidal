@@ -25,11 +25,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="relative flex items-center gap-x-3">
+    <div class="relative flex items-center gap-x-3 w-full">
         <Dialog>
             <Popover>
                 <PopoverTrigger>
-                    <EllipsisVertical :size="22" />
+                    <EllipsisVertical :size="20" />
                 </PopoverTrigger>
                 <PopoverContent align="start" class="flex flex-col w-fit gap-y-3">
                     <div class="flex justify-center items-center gap-x-2 text-[13px] text-gray-500">
@@ -59,9 +59,15 @@ const props = defineProps({
                 <div v-else>No notes!</div>
             </DialogScrollContent>
         </Dialog>
-        {{ props.item.name }}
+
+        <button @click="$emit('selectedItem', props.item)" class="item-button flex justify-between items-center text-left w-full hover:text-slate-900">
+            {{ props.item.name }}<ChevronRight :size="26" class="item-icon text-slate-600 flex-none ml-4" />
+        </button>
     </div>
-    <button @click="$emit('selectedItem', props.item)">
-        <ChevronRight :size="28" />
-    </button>
 </template>
+
+<style>
+.item-button:hover > .item-icon {
+    color: var(--color-slate-900);
+}
+</style>

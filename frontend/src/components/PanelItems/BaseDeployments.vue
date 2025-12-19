@@ -1,7 +1,7 @@
 <script setup>
 import { useFetch } from '@/assets/js/fetch'
 import { useSurveyStore } from '@/stores/survey'
-import { MapPin, Send, FileDown, Antenna, UserRound } from 'lucide-vue-next'
+import { MapPin, Send, FileDown, Antenna, UserRound, Images } from 'lucide-vue-next'
 import { TabsContent, TabsIndicator, TabsList, TabsRoot, TabsTrigger } from 'reka-ui'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
@@ -41,33 +41,33 @@ const { data, error } = useFetch(url)
             aria-label="Manage your account"
         >
             <TabsIndicator
-                class="absolute px-8 left-0 h-[3px] bottom-0 w-[var(--reka-tabs-indicator-size)] translate-x-[var(--reka-tabs-indicator-position)] translate-y-[1px] rounded-full transition-all duration-300"
+                class="absolute px-6 left-0 h-[3px] bottom-0 w-[var(--reka-tabs-indicator-size)] translate-x-[var(--reka-tabs-indicator-position)] translate-y-[1px] rounded-full transition-all duration-300"
             >
                 <div class="bg-sky-600 w-full h-full"></div>
             </TabsIndicator>
 
             <TabsTrigger
-                class="px-5 h-[40px] flex-1 flex items-center justify-center text-sm leading-none text-mauve11 select-none rounded-tl-md hover:text-grass11 data-[state=active]:text-grass11 outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black"
+                class="px-5 h-[40px] flex-1 flex items-center justify-center text-sm leading-none text-mauve11 select-none rounded-tr-md hover:text-grass11 data-[state=active]:text-grass11 outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black"
                 value="tab1"
+            >
+                <span class="flex items-center gap-x-1"><Images :size="16" /> Flight Imagery</span>
+            </TabsTrigger>
+            <TabsTrigger
+                class="px-5 h-[40px] flex-1 flex items-center justify-center text-sm leading-none text-mauve11 select-none rounded-tl-md hover:text-grass11 data-[state=active]:text-grass11 outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black"
+                value="tab2"
             >
                 <span class="flex items-center gap-x-1"><MapPin :size="16" /> Survey Points</span>
             </TabsTrigger>
-            <TabsTrigger
-                class="px-5 h-[40px] flex-1 flex items-center justify-center text-sm leading-none text-mauve11 select-none rounded-tr-md hover:text-grass11 data-[state=active]:text-grass11 outline-none cursor-default focus-visible:relative focus-visible:shadow-[0_0_0_2px] focus-visible:shadow-black"
-                value="tab2"
-            >
-                <span class="flex items-center gap-x-1"><Send :size="16" /> Flights</span>
-            </TabsTrigger>
         </TabsList>
         <TabsContent
-            class="grow py-4 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
-            value="tab1"
+            class="grow py-4 px-2 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
+            value="tab2"
         >
             <div v-for="baseDeployment in data" :key="baseDeployment.id">
                 <div v-if="error">Oh no! Error encountered: {{ error.message }}</div>
                 <div v-else-if="data">
                     <div class="flex justify-between items-center gap-x-2 mb-2.5">
-                        <h2 class="mr-2">Base Deployment</h2>
+                        <h2 class="font-medium mr-2">Base Deployment</h2>
                         <TooltipProvider>
                             <ButtonGroup>
                                 <Button size="icon" class="border-r border-black cursor-pointer">
@@ -146,8 +146,8 @@ const { data, error } = useFetch(url)
             </div>
         </TabsContent>
         <TabsContent
-            class="grow py-4 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
-            value="tab2"
+            class="grow py-4 px-2 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
+            value="tab1"
         >
             <Flights :deploymentId="props.deployment.id" />
         </TabsContent>
