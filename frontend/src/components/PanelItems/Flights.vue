@@ -117,13 +117,13 @@ function switchHandler(raster, value) {
                                                 </TooltipTrigger>
                                                 <TooltipContent class="max-w-64">
                                                     <p v-if="rasterType.raster.type.id == 1" class="font-medium mb-1">
-                                                        High-resolution surface imagery
+                                                        High-resolution full-colour surface image
                                                     </p>
                                                     <p v-else-if="rasterType.raster.type.id == 2" class="font-medium mb-1">
                                                         High-resolution near-infrared/ultraviolet/RBG surface imagery
                                                     </p>
                                                     <p v-else-if="rasterType.raster.type.id == 3" class="font-medium mb-1">
-                                                        High-resolution digital surface model
+                                                        High-resolution 3D digital surface model
                                                     </p>
                                                     Units?
                                                     <ul class="font-medium">
