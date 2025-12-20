@@ -11,8 +11,8 @@ const app = createApp(App)
 app.use(createPinia())
 //app.use(router)
 
-// Expose console globally
+// Expose console.log globally for inline template use
+// Ex. <span>{{ $log('Message or variable') }}</span>
 app.config.globalProperties.$log = console.log;
-app.config.globalProperties.$console = console;
 
 app.mount('#app')

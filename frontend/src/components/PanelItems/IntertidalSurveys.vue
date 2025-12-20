@@ -25,8 +25,8 @@ const store = useSurveyStore()
 
 <template>
     <div class="flex justify-start items-center gap-x-1.5 mb-6">
-        <Input type="text" placeholder="Search by location &hellip;" />
-        <Search class="absolute right-14" />
+        <Input type="text" disabled placeholder="Search by location &hellip;" class="rounded-full" />
+        <Search class="absolute right-15 opacity-50" />
 
         <TooltipProvider>
             <Tooltip>

@@ -84,7 +84,8 @@ function switchHandler(raster, value) {
 <template>
     <h3 class="font-medium mb-4">Flight Raster Images</h3>
     <div v-if="error">Oh no! Error encountered: {{ error.message }}</div>
-    <div v-else-if="data.length">
+    <div v-else-if="Object.entries(data).length == 0">No flight images found.</div>
+    <div v-else-if="data">
         <Accordion type="single" collapsible class="w-full border-t border-t-slate-400" :default-value="'item-' + data[0].id">
             <div v-for="flight in data" :key="flight.id">
                 <AccordionItem :value="'item-' + flight.id" class="border-b-slate-400">

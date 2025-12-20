@@ -59,13 +59,24 @@ const { data, error } = useFetch(url)
                 <span class="flex items-center gap-x-1"><MapPin :size="16" /> Survey Points</span>
             </TabsTrigger>
         </TabsList>
+
+        <TabsContent
+            class="grow py-4 px-2 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
+            value="tab1"
+        >
+            <Flights :deploymentId="props.deployment.id" />
+        </TabsContent>
         <TabsContent
             class="grow py-4 px-2 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
             value="tab2"
         >
-            <div v-for="baseDeployment in data" :key="baseDeployment.id">
-                <div v-if="error">Oh no! Error encountered: {{ error.message }}</div>
-                <div v-else-if="data">
+
+            <div v-if="error">Oh no! Error encountered: {{ error.message }}</div>
+            <div v-else-if="Object.entries(data).length === 0">
+                No base deployments found.
+            </div>
+            <div v-else-if="data">
+                <div v-for="baseDeployment in data" :key="baseDeployment.id">
                     <div class="flex justify-between items-center gap-x-2 mb-2.5">
                         <h2 class="font-medium mr-2">Base Deployment</h2>
                         <TooltipProvider>
@@ -142,14 +153,8 @@ const { data, error } = useFetch(url)
                     </div>
                     <SurveyPoints :baseDeploymentId="baseDeployment.id" />
                 </div>
-                <div v-else>Loading Base Deployments...</div>
             </div>
-        </TabsContent>
-        <TabsContent
-            class="grow py-4 px-2 rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-transparent"
-            value="tab1"
-        >
-            <Flights :deploymentId="props.deployment.id" />
+            <div v-else>Loading Base Deployments...</div>
         </TabsContent>
     </TabsRoot>
 </template>
