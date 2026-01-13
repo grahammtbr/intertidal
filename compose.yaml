@@ -63,7 +63,7 @@ services:
       # Map host port 80 to container port 80. This works a single container server.
       # It will likely conflict an existing Docker Nginx network.
       # If there's an internal network mapping ports then change to something like 8080:80
-      - "8080:80"
+      - "8088:80"
       #- "443:443" # If SSL is needed in the future
     depends_on:
       - backend
