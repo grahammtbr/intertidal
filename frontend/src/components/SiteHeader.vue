@@ -8,14 +8,19 @@ import ToDoMenu from './ToDoMenu.vue'
         <div
             class="h-full flex justify-between items-center px-4 bg-slate-100/70 backdrop-blur-2xl shadow-md"
         >
-            <div class="flex items-end gap-x-6">
-                <img
-                    alt="Vue logo"
-                    class="logo"
-                    src="@/assets/images/MSEA_logo_FullColour.svg"
-                    width="120"
-                />
-                <h1 class="text-2xl font-bold mb-0.5 text-slate-900">Intertidal Surveys Database</h1>
+            <div class="flex items-center gap-x-6">
+                <a href="/intertidal/">
+                    <img
+                        alt="Vue logo"
+                        class="logo"
+                        src="@/assets/images/MSEA_logo_FullColour.svg"
+                        width="100"
+                    />
+                </a>
+                <div class="">
+                    <h1 class="text-2xl font-bold m-0 text-slate-900">Intertidal Surveys Database</h1>
+                    <h2 class="text-[13px] leading-4 m-0">Marine Sciences Division, Fisheries and Oceans Canada</h2>
+                </div>
             </div>
             <div class="flex gap-x-8">
                 <to-do-menu />

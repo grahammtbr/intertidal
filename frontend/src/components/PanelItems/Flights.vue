@@ -35,6 +35,7 @@ const rasterTileLayers = ref({})
 const url = `/api/v1/deployments/${props.deploymentId}/rpas_flights/`
 const { data, error } = useFetch(url)
 
+
 watch(
     () => data.value,
     (flights) => {
@@ -64,8 +65,9 @@ watch(
                 rr.isEnabled = false
             }
         }
-        //console.log(flights)
-        rasterTileLayers.value = layers
+
+        rasterTileLayers.value[`deployments_${props.deploymentId}_rpas_flights`] = layers
+        console.log(rasterTileLayers.value)
     },
     { immediate: true },
 )
@@ -125,7 +127,7 @@ function switchHandler(raster, value) {
                                                     <p v-else-if="rasterType.raster.type.id == 3" class="font-medium mb-1">
                                                         High-resolution 3D digital surface model
                                                     </p>
-                                                    Units?
+                                                    (Units?)
                                                     <ul class="font-medium">
                                                         <li>Size: {{rasterType.raster.size}}</li>
                                                         <li>Resolution: {{rasterType.raster.resolution}}</li>

@@ -26,16 +26,24 @@ import {
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" class="z-1001 py-3 px-4">
-            <ul class="list-disc pl-4 max-w-72 text-sm">
-                <li>Fix type-ahead search</li>
+            <ul class="list-disc pl-4 max-w-80 text-sm">
+                <li><s>Fix type-ahead search</s></li>
+                    <ul class="list-disc pl-4">
+                        <li>Switch to fuse.js for fuzzy search</li>
+                        <li>Pre-populate datalist from custom endpoint (autoloaded and cached)</li>
+                    </ul>
                 <li>
-                    Move survey/deployments into new state so above will work and set parent(s)
+                    (partially done) Move survey/deployments into new state so above will work and set parent(s)
                     (override existing current$)
+                    <ul class="list-disc pl-4">
+                        <li>Copy into session cookie (or localstorage) for logged in users?</li>
+                        <li>Save session for non-logged in?</li>
+                    </ul>
                 </li>
-                <li>Fix Leaflet layer control - may need custom</li>
-                    <ul class="list-disc pl-4"><li class="inde">Not broken, ARC base map is - remove or find replacement?</li></ul>
                 <li>What info to add to survey point popup?</li>
                 <li>Control to zoom out to bounds of all open images/points</li>
+                <li>Auth, share auth/session cookies with Django, <a href="https://tinyurl.com/yc27b2vh">https://tinyurl.com/yc27b2vh</a></li>
+                <li>What level of data needs to be hidden under auth?</li>
             </ul>
         </DropdownMenuContent>
     </DropdownMenu>
