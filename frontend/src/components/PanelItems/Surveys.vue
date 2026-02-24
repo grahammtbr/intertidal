@@ -1,5 +1,5 @@
 <script setup>
-import { useFetch } from '@/assets/js/fetch'
+import { useFetch } from '@/lib/fetch'
 import { useSurveyStore } from '@/stores/survey'
 import ListItems from './ListItems.vue'
 

@@ -25,7 +25,7 @@ const store = useSurveyStore()
 
 <template>
     <div class="flex justify-start items-center gap-x-1.5 mb-6">
-        <Input type="text" disabled placeholder="Search by location &hellip;" class="rounded-xl" />
+        <Input type="text" placeholder="Search by name &hellip;" class="rounded-xl pl-4 pr-10 bg-transparent focus:bg-slate-100 placeholder:text-slate-700" />
         <Search class="absolute right-15 opacity-50" />
 
         <TooltipProvider>
@@ -35,8 +35,8 @@ const store = useSurveyStore()
                 </TooltipTrigger>
                 <TooltipContent>
                     <p class="font-medium text-center">
-                        Survey name, beach name,<br />
-                        inlet name, etc.
+                        Program name, survey name,<br />
+                        beach name, inlet name, etc.
                     </p>
                 </TooltipContent>
             </Tooltip>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, inject } from 'vue'
-import { useFetch } from '@/assets/js/fetch'
+import { useFetch } from '@/lib/fetch'
 import { Drone } from 'lucide-vue-next'
 import { Switch } from '@/components/ui/switch'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from '@/components/ui/accordion'

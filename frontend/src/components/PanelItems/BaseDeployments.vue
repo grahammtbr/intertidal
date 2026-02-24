@@ -1,5 +1,5 @@
 <script setup>
-import { useFetch } from '@/assets/js/fetch'
+import { useFetch } from '@/lib/fetch'
 import { useSurveyStore } from '@/stores/survey'
 import { MapPin, Send, FileDown, Antenna, UserRound, Images } from 'lucide-vue-next'
 import { TabsContent, TabsIndicator, TabsList, TabsRoot, TabsTrigger } from 'reka-ui'

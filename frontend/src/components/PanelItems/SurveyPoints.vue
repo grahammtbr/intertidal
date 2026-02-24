@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, inject } from 'vue'
-import { useFetch } from '@/assets/js/fetch'
+import { useFetch } from '@/lib/fetch'
 import { Switch } from '@/components/ui/switch'
 import * as L from 'leaflet'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'

@@ -16,15 +16,16 @@
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.17",
-        "@vueuse/core": "^14.1.0",
+        "@vueuse/core": "^14.2.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "leaflet": "^1.9.4",
         "lucide-vue-next": "^0.554.0",
         "pinia": "^3.0.3",
-        "reka-ui": "^2.6.1",
+        "reka-ui": "^2.8.2",
         "tailwind-merge": "^3.4.0",
         "tailwindcss": "^4.1.17",
+        "universal-cookie": "^8.0.1",
         "vue": "^3.5.22",
         "vue-router": "^4.6.3"
     },

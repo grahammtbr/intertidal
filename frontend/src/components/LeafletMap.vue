@@ -65,7 +65,7 @@ onMounted(() => {
         layer.addTo(map.value)
     }
 
-    L.control.layers(leafletBaseLayers, leafletOverlays).addTo(map.value)
+    // L.control.layers(leafletBaseLayers, leafletOverlays).addTo(map.value)
     L.control.zoom({ position: 'bottomright' }).addTo(map.value)
 })
 
